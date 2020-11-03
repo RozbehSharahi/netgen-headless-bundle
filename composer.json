@@ -1,0 +1,20 @@
+{
+  "name": "rozbehsharahi/netgen-headless",
+  "description": "Symfony Bundle to make Netgen Layout Headless",
+  "type": "symfony-bundle",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rozbeh Chiryai Sharahi",
+      "email": "rozbeh.sharahi@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "netgen/layouts-standard": "^1.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "Rs\\NetgenHeadless\\": ""
+    }
+  }
+}

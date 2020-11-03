@@ -1,0 +1,3 @@
+netgen-headless:
+  resource: ../../Controller/
+  type: annotation

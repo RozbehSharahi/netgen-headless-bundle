@@ -1,0 +1,4 @@
+/.idea
+z_*
+/vendor/
+composer.lock

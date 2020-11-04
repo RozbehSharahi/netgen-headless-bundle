@@ -9,12 +9,16 @@
       "email": "rozbeh.sharahi@gmail.com"
     }
   ],
-  "require-dev": {
-    "netgen/layouts-standard": "^1.2"
-  },
   "autoload": {
     "psr-4": {
       "Rs\\NetgenHeadless\\": ""
     }
+  },
+  "require": {
+    "netgen/layouts-standard": "^1.2",
+    "overblog/graphql-bundle": "^0.13.4"
+  },
+  "require-dev": {
+    "overblog/graphiql-bundle": "^0.2.1"
   }
 }

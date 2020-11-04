@@ -23,7 +23,15 @@ netgen-headless:
   prefix:   /ngh
 ```
 
-## 4 Add GraphQL Yaml
+## 4 Add GraphQL Route
+
+```
+overblog_graphql_endpoint:
+    resource: "@OverblogGraphQLBundle/Resources/config/routing/graphql.yml"
+    prefix: 'gql'
+```
+
+## 5 Add GraphQL Yaml
 
 ```
 // add to config/packages/graphql.yaml
@@ -39,7 +47,7 @@ overblog_graphql:
                     suffix: null
 ```
 
-## 5 Prepare graphql types directory
+## 6 Prepare graphql types directory
 
 ```
 # Create file config/graphql/types/.gitignore

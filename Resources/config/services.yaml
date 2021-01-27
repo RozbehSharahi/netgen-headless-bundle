@@ -1,4 +1,3 @@
-
 services:
   _defaults:
     autowire: true      # Automatically injects dependencies in your services.
@@ -12,3 +11,10 @@ services:
         - '../../Kernel.php'
         - '../../Tests/'
         - '../../vendor/'
+
+  Rs\NetgenHeadless\GraphQl\ResolverMap:
+    tags:
+      - { name: overblog_graphql.resolver_map, schema: default }
+
+  Rs\NetgenHeadless\GraphQl\:
+    resource: '../../GraphQl/'

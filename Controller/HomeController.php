@@ -13,6 +13,6 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return new Response('hello world');
+        return new Response('Netgen Headless was installed successfully');
     }
 }

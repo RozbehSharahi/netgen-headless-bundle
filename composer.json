@@ -15,6 +15,7 @@
     }
   },
   "require": {
+    "ext-json": "*",
     "netgen/layouts-standard": "^1.2",
     "overblog/graphql-bundle": "^0.13.4"
   },

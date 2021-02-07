@@ -24,7 +24,7 @@ Nevertheless in the following chapters you see how you could install manually.
 
 ```
 // add to bundles.php
-Rs\NetgenHeadless\RsNetgenHeadlessBundle::class => ['all' => true],
+Rs\NetgenHeadless\NetgenHeadlessBundle::class => ['all' => true],
 Overblog\GraphQLBundle\OverblogGraphQLBundle::class => ['all' => true],
 ```
 
@@ -33,8 +33,8 @@ Overblog\GraphQLBundle\OverblogGraphQLBundle::class => ['all' => true],
 ```
 // add to config/routes.yaml
 netgen-headless:
-  resource: "@RsNetgenHeadlessBundle/Resources/config/routing.yaml"
-  prefix:   /ngh
+  resource: "@NetgenHeadlessBundle/Resources/config/routing.yaml"
+  prefix:   /netgen-headless
 ```
 
 ### 4 Add GraphQL Route
@@ -42,29 +42,7 @@ netgen-headless:
 ```
 overblog_graphql_endpoint:
     resource: "@OverblogGraphQLBundle/Resources/config/routing/graphql.yml"
-    prefix: 'gql'
-```
-
-### 5 Add GraphQL Yaml
-
-```
-// add to config/packages/graphql.yaml
-overblog_graphql:
-    definitions:
-        schema:
-            query: Query
-        mappings:
-            types:
-                -
-                    type: yaml
-                    dir: "%kernel.project_dir%/config/graphql/types"
-                    suffix: null
-```
-
-### 6 Prepare graphql types directory
-
-```
-# Create file config/graphql/types/.gitignore
+    prefix: 'graphql'
 ```
 
 ## Installation of GraphIQL for debugging
@@ -88,5 +66,5 @@ Overblog\GraphiQLBundle\OverblogGraphiQLBundle::class => ['dev' => true],
 // config/routes/dev/graphiql.yaml
 overblog_graphiql:
     resource: "@OverblogGraphiQLBundle/Resources/config/routing.xml"
-    prefix: 'gql'
+    prefix: 'graphql'
 ```

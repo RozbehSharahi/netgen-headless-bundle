@@ -1,0 +1,11 @@
+overblog_graphql:
+  definitions:
+    schema:
+      default:
+        query: RootQuery
+    mappings:
+      types:
+        -
+          type: yaml
+          dir: "%kernel.project_dir%/src/config/graphql/types/"
+          suffix: null

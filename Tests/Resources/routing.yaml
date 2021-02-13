@@ -1,0 +1,4 @@
+netgen-headless:
+  resource: "@NetgenHeadlessBundle/Controller/"
+  type: annotation
+  prefix: /

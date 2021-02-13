@@ -1,0 +1,14 @@
+framework:
+  test: ~
+  router: { resource: "%kernel.project_dir%/Tests/Resources/routing.yaml" }
+
+monolog:
+  handlers:
+    main:
+      type: fingers_crossed
+      action_level: error
+      handler: nested
+    nested:
+      type: stream
+      path: ./Tests/.debug.log
+      level: debug

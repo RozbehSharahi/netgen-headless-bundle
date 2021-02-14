@@ -8,11 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
+
+    const SUCCESS_MESSAGE = 'NetgenHeadlessBundles installed';
+
     /**
      * @Route("/", name="netgen-headless-home")
      */
     public function index()
     {
-        return new Response('Netgen Headless was installed successfully');
+        return new Response(self::SUCCESS_MESSAGE);
     }
 }

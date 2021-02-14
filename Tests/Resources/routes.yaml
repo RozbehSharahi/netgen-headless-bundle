@@ -1,0 +1,3 @@
+netgen-headless:
+  resource: "@NetgenHeadlessBundle/Resources/config/routing.yaml"
+  prefix:   /netgen-headless

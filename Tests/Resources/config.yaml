@@ -1,6 +1,6 @@
 framework:
   test: ~
-  router: { resource: "%kernel.project_dir%/Tests/Resources/routing.yaml" }
+  router: { resource: "@NetgenHeadlessBundle/Tests/Resources/routes.yaml" }
 
 monolog:
   handlers:

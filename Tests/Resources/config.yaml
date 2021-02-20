@@ -2,6 +2,14 @@ framework:
   test: ~
   router: { resource: "@NetgenHeadlessBundle/Tests/Resources/routes.yaml" }
 
+doctrine:
+  dbal:
+    url: 'mysql://root:root@doka-mysql:3306/test-database'
+  orm:
+    auto_generate_proxy_classes: true
+    naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+    auto_mapping: true
+
 monolog:
   handlers:
     main:

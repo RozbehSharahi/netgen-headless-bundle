@@ -2,9 +2,12 @@
 
 namespace Rs\NetgenHeadless\Tests;
 
+use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
+use Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle;
 use Exception;
 use Overblog\GraphQLBundle\OverblogGraphQLBundle;
 use Rs\NetgenHeadless\NetgenHeadlessBundle;
+use Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
@@ -20,6 +23,9 @@ class TestKernel extends Kernel
             new FrameworkBundle(),
             new SecurityBundle(),
             new MonologBundle(),
+            new DoctrineBundle(),
+            new DoctrineMigrationsBundle(),
+            new SensioFrameworkExtraBundle(),
             new OverblogGraphQLBundle(),
             new NetgenHeadlessBundle()
         ];

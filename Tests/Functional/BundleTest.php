@@ -4,6 +4,7 @@ namespace Rs\NetgenHeadless\Tests\Functional;
 
 use Exception;
 use Rs\NetgenHeadless\Controller\HomeController;
+use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 
 class BundleTest extends AbstractFunctionalTest
 {
@@ -13,9 +14,10 @@ class BundleTest extends AbstractFunctionalTest
      */
     public function testBundleInstalled()
     {
-        $client = static::createClient();
-        $client->request('GET', '/netgen-headless/');
-        self::assertEquals(HomeController::SUCCESS_MESSAGE, $client->getResponse()->getContent());
+        $this->withinTransaction(function (KernelBrowser $client) {
+            $client->request('GET', '/netgen-headless/');
+            self::assertEquals(HomeController::SUCCESS_MESSAGE, $client->getResponse()->getContent());
+        });
     }
 
 }

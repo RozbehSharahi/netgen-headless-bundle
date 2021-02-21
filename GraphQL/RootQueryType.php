@@ -18,17 +18,17 @@ class RootQueryType extends ObjectType implements AliasedInterface
     {
         return [
             'fields' => [
-                'helloWorld' => [
+                'netgenHeadlessSayHello' => [
                     'type' => Type::string(),
-                    'resolve' => fn () => $this->helloWorld()
+                    'resolve' => fn () => $this->netgenHeadlessSayHello()
                 ]
             ]
         ];
     }
 
-    public function helloWorld(): string
+    public function netgenHeadlessSayHello(): string
     {
-        return 'In bundle';
+        return 'Hello. I am There.';
     }
 
     public static function getAliases(): array

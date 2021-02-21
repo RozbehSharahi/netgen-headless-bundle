@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          bootstrap="./Tests/Functional/Core/FunctionalBootstrap.php"
+         stopOnFailure="true"
          xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
     <coverage>
         <include>
@@ -14,7 +15,7 @@
     </coverage>
     <testsuites>
         <testsuite name="NetgenHeadless test suite">
-            <directory suffix="Test.php">./Tests</directory>
+            <directory>./Tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>

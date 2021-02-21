@@ -13,6 +13,7 @@ use Netgen\Bundle\LayoutsBundle\NetgenLayoutsBundle;
 use Netgen\Bundle\LayoutsDebugBundle\NetgenLayoutsDebugBundle;
 use Netgen\Bundle\LayoutsStandardBundle\NetgenLayoutsStandardBundle;
 use Netgen\Bundle\LayoutsUIBundle\NetgenLayoutsUIBundle;
+use Overblog\GraphiQLBundle\OverblogGraphiQLBundle;
 use Overblog\GraphQLBundle\OverblogGraphQLBundle;
 use Rs\NetgenHeadless\NetgenHeadlessBundle;
 use Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle;
@@ -21,7 +22,6 @@ use Symfony\Bundle\MonologBundle\MonologBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
-use Symfony\Component\Console\Application;
 use Symfony\Component\HttpKernel\Kernel;
 use Twig\Extra\TwigExtraBundle\TwigExtraBundle;
 
@@ -48,6 +48,7 @@ class TestKernel extends Kernel
             new NetgenLayoutsDebugBundle(),
             new NetgenLayoutsStandardBundle(),
             new OverblogGraphQLBundle(),
+            new OverblogGraphiQLBundle(),
             new NetgenHeadlessBundle()
         ];
     }

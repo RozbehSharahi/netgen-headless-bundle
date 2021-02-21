@@ -10,3 +10,4 @@ Tests/**/var/
 /var
 /doka
 /Tests/Application/public/bundles
+/Tests/Functional/Core/do-not-recreate-database

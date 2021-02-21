@@ -1,20 +1,22 @@
 <?php
 
-namespace Rs\NetgenHeadless\Tests;
+namespace Rs\NetgenHeadless\Tests\Functional\Core;
 
 use Exception;
-use Rs\NetgenHeadless\Tests\Functional\AbstractFunctionalTest;
+use Rs\NetgenHeadless\Tests\TestHelper;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Dotenv\Dotenv;
 
 require './vendor/autoload.php';
 
 /**
  * @internal
  */
-class Bootstrap extends AbstractFunctionalTest
+class FunctionalBootstrap extends AbstractFunctionalTest
 {
     public function __construct()
     {
+        (new Dotenv())->bootEnv(__DIR__ . '/../.env');
         parent::__construct(null, [], '');
     }
 
@@ -39,7 +41,7 @@ class Bootstrap extends AbstractFunctionalTest
 }
 
 try {
-    (new Bootstrap())->setupDatabase();
+    (new FunctionalBootstrap())->setupDatabase();
 } catch (Exception $e) {
     die('Could not initialize Database for testing: ' . $e->getMessage());
 }

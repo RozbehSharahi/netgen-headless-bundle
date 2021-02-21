@@ -4,7 +4,7 @@ namespace Rs\NetgenHeadless\Tests\Application;
 
 use Rs\NetgenHeadless\Tests\TestKernel;
 
-class TestApplicationKernel extends TestKernel {
+class ApplicationTestKernel extends TestKernel {
 
     public function getProjectDir(): string
     {

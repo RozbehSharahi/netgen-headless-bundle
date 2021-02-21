@@ -31,7 +31,7 @@ class TestHelper
         ]));
         $application->run(new ArrayInput([
             'doctrine:migrations:migrate',
-            '--configuration' => 'vendor/netgen/layouts-core/migrations/doctrine.yaml',
+            '--configuration' => __DIR__.'/../vendor/netgen/layouts-core/migrations/doctrine.yaml',
             '--no-interaction' => true
         ]));
 

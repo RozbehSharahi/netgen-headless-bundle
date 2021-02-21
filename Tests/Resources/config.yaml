@@ -10,7 +10,7 @@ framework:
 
 doctrine:
   dbal:
-    url: 'mysql://root:root@doka-mysql:3306/test-database'
+    url: '%env(DATABASE_URL)%'
   orm:
     auto_generate_proxy_classes: true
     naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware

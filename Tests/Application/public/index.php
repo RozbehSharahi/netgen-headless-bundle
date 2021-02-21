@@ -1,6 +1,6 @@
 <?php
 
-use Rs\NetgenHeadless\Tests\Application\TestApplicationKernel;
+use Rs\NetgenHeadless\Tests\Application\ApplicationTestKernel;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -17,7 +17,7 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? false) {
     Request::setTrustedHosts([$trustedHosts]);
 }
 
-$kernel = new TestApplicationKernel('test', true);
+$kernel = new ApplicationTestKernel('test', true);
 $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();

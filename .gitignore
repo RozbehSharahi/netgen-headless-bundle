@@ -1,9 +1,12 @@
-/.idea
+.debug.log
+.env.local
 z_*
+Tests/**/var/
+
+/.idea
 /vendor/
 /composer.lock
 /.phpunit.result.cache
-.debug.log
 /var
 /doka
 /Tests/Application/public/bundles

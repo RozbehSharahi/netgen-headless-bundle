@@ -2,6 +2,8 @@ services:
   _defaults:
     autowire: true      # Automatically injects dependencies in your services.
     autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+    bind:
+      Netgen\Layouts\API\Service\LayoutService: '@netgen_layouts.api.service.layout'
 
   Rs\NetgenHeadless\:
     resource: '../../'

@@ -4,14 +4,23 @@ namespace Rs\NetgenHeadless\GraphQL;
 
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
+use Netgen\Layouts\API\Service\LayoutService;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 
 class RootQueryType extends ObjectType implements AliasedInterface
 {
 
-    public function __construct()
+    private LayoutService $layoutService;
+
+    public function __construct(LayoutService $layoutService)
     {
+        $this->layoutService = $layoutService;
         parent::__construct($this->getConfig());
+    }
+
+    public static function getAliases(): array
+    {
+        return ['RootQuery'];
     }
 
     protected function getConfig(): array
@@ -21,6 +30,10 @@ class RootQueryType extends ObjectType implements AliasedInterface
                 'netgenHeadlessSayHello' => [
                     'type' => Type::string(),
                     'resolve' => fn () => $this->netgenHeadlessSayHello()
+                ],
+                'layouts' => [
+                    'type' => Type::listOf(LayoutType::instance()),
+                    'resolve' => fn() => $this->layouts()
                 ]
             ]
         ];
@@ -31,8 +44,8 @@ class RootQueryType extends ObjectType implements AliasedInterface
         return 'Hello. I am There.';
     }
 
-    public static function getAliases(): array
+    private function layouts(): array
     {
-        return ['RootQuery'];
+        return $this->layoutService->loadLayouts()->getValues();
     }
 }

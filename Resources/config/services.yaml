@@ -6,6 +6,7 @@ services:
   Rs\NetgenHeadless\:
     resource: '../../'
     exclude:
+        - '../../bin/'
         - '../../DependencyInjection/'
         - '../../Entity/'
         - '../../Kernel.php'

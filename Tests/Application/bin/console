@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+use Rs\NetgenHeadless\Tests\Application\TestApplicationKernel;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+use Symfony\Component\Dotenv\Dotenv;
+
+require_once __DIR__ . '/../../../vendor/autoload.php';
+
+(new Dotenv())->bootEnv(__DIR__ . '/../.env');
+
+// Create the Application
+$application = new Application(new TestApplicationKernel('dev', false));
+
+// Run it
+$application->run(new ArgvInput());
+

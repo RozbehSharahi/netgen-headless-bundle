@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+use Rs\NetgenHeadless\Tests\Application\TestApplicationKernel;
+use Rs\NetgenHeadless\Tests\TestHelper;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Dotenv\Dotenv;
+
+require_once __DIR__ . '/../../../vendor/autoload.php';
+
+(new Dotenv())->bootEnv(__DIR__ . '/../.env');
+
+// Create the Application
+$application = new Application(new TestApplicationKernel('test', true));
+
+(new TestHelper())
+    ->createDatabase($application)
+    ->createNetgenAssets($application);

@@ -1,3 +1,11 @@
 netgen-headless:
   resource: "@NetgenHeadlessBundle/Resources/config/routing.yaml"
   prefix:   /netgen-headless
+
+netgen_layouts:
+  resource: "@NetgenLayoutsBundle/Resources/config/routing.yml"
+  prefix: "%netgen_layouts.route_prefix%"
+
+netgen_content_browser:
+  resource: "@NetgenContentBrowserBundle/Resources/config/routing.yml"
+  prefix: "%netgen_content_browser.route_prefix%"

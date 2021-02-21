@@ -1,4 +1,10 @@
 framework:
+  secret: 'SOME_SECRET'
+  csrf_protection: ~
+  session:
+    # This is absolutely needed on test. Otherwise you receive:
+    # "Warning: ini_set(): Headers already sent. You cannot change the session module's ini settings at this time"
+    storage_id: session.storage.mock_file
   test: ~
   router: { resource: "@NetgenHeadlessBundle/Tests/Resources/routes.yaml" }
 
@@ -20,3 +26,23 @@ monolog:
       type: stream
       path: ./Tests/.debug.log
       level: debug
+
+security:
+  encoders:
+    Symfony\Component\Security\Core\User\User: plaintext
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+  providers:
+    users_in_memory:
+      memory:
+        users:
+          root:
+            roles: 'ROLE_NGLAYOUTS_ADMIN'
+            password: root
+  firewalls:
+    netgen:
+      pattern: ^/(nglayouts|cb)
+      stateless: false
+      http_basic:
+        provider: users_in_memory
+    main:
+      anonymous: true

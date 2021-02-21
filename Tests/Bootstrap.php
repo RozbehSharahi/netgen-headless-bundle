@@ -1,15 +1,17 @@
 <?php
 
+namespace Rs\NetgenHeadless\Tests;
+
+use Exception;
 use Rs\NetgenHeadless\Tests\Functional\AbstractFunctionalTest;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Symfony\Component\Console\Input\ArrayInput;
 
 require './vendor/autoload.php';
 
 /**
  * @internal
  */
-class FunctionalBootstrap extends AbstractFunctionalTest
+class Bootstrap extends AbstractFunctionalTest
 {
     public function __construct()
     {
@@ -25,14 +27,8 @@ class FunctionalBootstrap extends AbstractFunctionalTest
         static::createClient();
 
         $app = new Application(self::$kernel);
-        $app->setAutoExit(false);
-        $app->run(new ArrayInput(['doctrine:database:drop', '--no-interaction' => true, '--force' => true]));
-        $app->run(new ArrayInput(['doctrine:database:create', '--no-interaction' => true]));
-        $app->run(new ArrayInput([
-            'doctrine:migrations:migrate',
-            '--configuration' => 'vendor/netgen/layouts-core/migrations/doctrine.yaml',
-            '--no-interaction' => true
-        ]));
+
+        (new TestHelper())->createDatabase($app);
         
         static::ensureKernelShutdown();
         static::$kernel = null;
@@ -43,7 +39,7 @@ class FunctionalBootstrap extends AbstractFunctionalTest
 }
 
 try {
-    (new FunctionalBootstrap())->setupDatabase();
+    (new Bootstrap())->setupDatabase();
 } catch (Exception $e) {
     die('Could not initialize Database for testing: ' . $e->getMessage());
 }

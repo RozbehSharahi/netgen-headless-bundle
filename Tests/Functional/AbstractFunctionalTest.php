@@ -1,19 +1,16 @@
 <?php
 
-
 namespace Rs\NetgenHeadless\Tests\Functional;
-
 
 use Doctrine\ORM\EntityManagerInterface;
 use InvalidArgumentException;
-use Rs\NetgenHeadless\Tests\TestKernel;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 abstract class AbstractFunctionalTest extends WebTestCase
 {
-    protected static function getKernelClass()
+    protected static function getKernelClass(): TestFunctionalKernel
     {
-        return new TestKernel('test', false);
+        return new TestFunctionalKernel('test', false);
     }
 
     protected function withinTransaction($callback): self

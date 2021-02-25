@@ -14,7 +14,7 @@ require './vendor/autoload.php';
  */
 class FunctionalBootstrap extends AbstractFunctionalTest
 {
-    protected string $doNotRecreateFile = __DIR__ . '/do-not-recreate-database';
+    protected string $doNotRecreateFile = __DIR__ . '/../../../fast-tests';
 
     public function __construct()
     {
@@ -35,8 +35,6 @@ class FunctionalBootstrap extends AbstractFunctionalTest
         if (!file_exists($this->doNotRecreateFile)) {
             (new TestHelper())->createDatabase($app);
         }
-
-        file_put_contents($this->doNotRecreateFile, '');
 
         static::ensureKernelShutdown();
         static::$kernel = null;

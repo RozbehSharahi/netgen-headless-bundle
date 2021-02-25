@@ -1,5 +1,6 @@
 .debug.log
 .env.local
+.doka.local.env
 z_*
 Tests/**/var/
 
@@ -10,4 +11,4 @@ Tests/**/var/
 /var
 /doka
 /Tests/Application/public/bundles
-/Tests/Functional/Core/do-not-recreate-database
+/fast-tests

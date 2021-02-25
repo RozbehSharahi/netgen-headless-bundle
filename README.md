@@ -81,6 +81,9 @@ doka/compose up -d
 // Enter docker-container and run tests
 doka/enter-app
 vendor/bin/phpunit
+
+// If you don't want to have db created all over again, you can create a file (git ignored) on root directory called `fast-tests`
+touch fast-tests
 ```
 
 ### Access test application

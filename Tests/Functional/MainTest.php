@@ -67,7 +67,7 @@ class MainTest extends AbstractFunctionalTest
 
             self::assertKeyExistsInArray('data.layouts', $response);
             self::assertCount(1, $response['data']['layouts']);
-            self::assertEquals(1, $response['data']['layouts'][0]['id']);
+            self::assertEquals($layout->getId(), $response['data']['layouts'][0]['id']);
         });
     }
 

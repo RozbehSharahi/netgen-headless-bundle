@@ -9,15 +9,18 @@ use Netgen\Layouts\API\Values\Layout\Layout;
 
 class LayoutType extends ObjectType
 {
-    use TypeTrait;
 
-    public function __construct()
+    public function __construct(ZoneType $zoneType)
     {
         parent::__construct([
             'fields' => [
                 'id' => [
                     'type' => Type::string(),
-                    'resolve' => fn(Layout $layout) => (string)$layout->getId()
+                    'resolve' => fn(Layout $layout) => (string)$layout->getId(),
+                ],
+                'zones' => [
+                    'type' => Type::listOf($zoneType),
+                    'resolve' => fn(Layout $layout) => $layout->getZones(),
                 ],
             ]
         ]);

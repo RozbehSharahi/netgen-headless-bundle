@@ -6,12 +6,12 @@ namespace Rs\NetgenHeadless\GraphQL;
 use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
 use Netgen\Layouts\API\Values\Layout\Layout;
-use Netgen\Layouts\Transfer\Output\SerializerInterface;
+use Netgen\Layouts\Transfer\Output\OutputVisitor;
 
 class LayoutType extends ObjectType
 {
 
-    public function __construct(SerializerInterface $serializer, ZoneType $zoneType)
+    public function __construct(OutputVisitor $outputVisitor, ZoneType $zoneType)
     {
         parent::__construct([
             'fields' => [
@@ -26,7 +26,7 @@ class LayoutType extends ObjectType
                 'json' => [
                     'type' => Type::string(),
                     'resolve' => fn(Layout $layout) => json_encode(
-                        $serializer->serialize('layout', [$layout->getId()->toString()])
+                        $outputVisitor->visit($layout)
                     )
                 ]
             ]

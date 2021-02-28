@@ -53,7 +53,7 @@ class MainTest extends AbstractFunctionalTest
         });
     }
 
-    public function testCanGetJson()
+    public function testCanGetLayoutJson()
     {
         $this->withinTransaction(function (FunctionalBag $bag) {
             $bag->createPublishedLayout('Some name');
@@ -67,8 +67,28 @@ class MainTest extends AbstractFunctionalTest
             ');
 
             self::assertKeyExistsInArray('data.layouts.0.json', $response);
-            self::assertIsString($response['data']['layouts']['0']['json']);
-            self::assertStringContainsString('Some name', $response['data']['layouts']['0']['json']);
+            self::assertIsString($response['data']['layouts'][0]['json']);
+            self::assertStringContainsString('Some name', $response['data']['layouts'][0]['json']);
+        });
+    }
+
+    public function testCanGetLayoutZonesJson()
+    {
+        $this->withinTransaction(function (FunctionalBag $bag) {
+            $bag->createPublishedLayout('Some name');
+
+            $response = $this->graphqlRequest($bag->getClient(), '
+                {
+                    layouts {
+                      zones {
+                        json
+                      }
+                    }
+                }
+            ');
+
+            self::assertKeyExistsInArray('data.layouts.0.zones.0.json', $response);
+            self::assertStringContainsString('main', $response['data']['layouts'][0]['zones'][0]['json']);
         });
     }
 

@@ -2,7 +2,8 @@
 
 ## Installation
 
-This chapter is separated into main installation and debug installation. Please Keep in mind **Symfony Flex** will by itself do most of the work for you when requiring with composer. 
+This chapter is separated into main installation and debug installation. Please Keep in mind **Symfony Flex** will by
+itself do most of the work for you when requiring with composer.
 
 Therefore it should be any enough to run following and accept recipes:
 
@@ -40,7 +41,7 @@ overblog_graphql_endpoint:
 
 ## Installation of GraphIQL for debugging
 
-### 1 Install package 
+### 1 Install package
 
 ```
 composer require --dev overblog/graphiql-bundle
@@ -62,11 +63,34 @@ overblog_graphiql:
     prefix: 'graphql'
 ```
 
+## Usage
+
+This package provides a graphql endpoint which depending on the configuration made can be reached
+via `http://your-domain.com/graphql` for instance. 
+
+Please use graphiql or any other schema reading tool for graphql to see how accessing data is organized.
+
+Here an example query:
+
+```
+{
+    layouts {
+        id # receive id
+        json # receive json of whole layout
+        zones {
+            identifier # receive identifier
+            json # receive json of zone
+        }
+    }
+}
+```
+
 ## Run tests and application
 
 This is a self-contained bundle containing also a test application in `Tests/Application`.
 
-I developed this on my own docker-compose base repository: `https://github.com/RozbehSharahi/doka`. Feel free to use your this as well or your own setup.
+I developed this on my own docker-compose base repository: `https://github.com/RozbehSharahi/doka`. Feel free to use
+your this as well or your own setup.
 
 ```
 // In root dir call:

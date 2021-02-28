@@ -18,9 +18,9 @@ class ZoneType extends ObjectType
 
         parent::__construct([
             'fields' => [
-                'id' => [
+                'identifier' => [
                     'type' => Type::string(),
-                    'resolve' => fn(Zone $zone) => (string)$zone->getIdentifier(),
+                    'resolve' => fn(Zone $zone) => $zone->getIdentifier(),
                 ],
                 'blocks' => [
                     'type' => Type::listOf($blockType),

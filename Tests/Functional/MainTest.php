@@ -53,4 +53,23 @@ class MainTest extends AbstractFunctionalTest
         });
     }
 
+    public function testCanGetJson()
+    {
+        $this->withinTransaction(function (FunctionalBag $bag) {
+            $bag->createPublishedLayout('Some name');
+
+            $response = $this->graphqlRequest($bag->getClient(), '
+                {
+                    layouts {
+                      json
+                    }
+                }
+            ');
+
+            self::assertKeyExistsInArray('data.layouts.0.json', $response);
+            self::assertIsString($response['data']['layouts']['0']['json']);
+            self::assertStringContainsString('Some name', $response['data']['layouts']['0']['json']);
+        });
+    }
+
 }

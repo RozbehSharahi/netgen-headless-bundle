@@ -2,6 +2,7 @@
 
 namespace Rs\NetgenHeadless\Tests\Functional\Core;
 
+use Exception;
 use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\Layout\Layout;
 use Netgen\Layouts\API\Values\Layout\LayoutCreateStruct;
@@ -45,6 +46,26 @@ class FunctionalBag
     public function getLayoutService(): LayoutService
     {
         return $this->container->get('netgen_layouts.api.service.layout');
+    }
+
+    /**
+     * @param string $query
+     * @return array
+     * @throws Exception
+     */
+    public function graphqlRequest(string $query): array
+    {
+        $this->getClient()->request('POST', '/graphql/', [
+            'query' => $query
+        ]);
+
+        $result = json_decode($this->getClient()->getResponse()->getContent(), true);
+
+        if (!$result) {
+            throw new Exception("Response on graphql request '${query}' failed");
+        }
+
+        return $result;
     }
 
     public function getLayoutTypeRegistry(): LayoutTypeRegistry

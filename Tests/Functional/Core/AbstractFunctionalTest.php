@@ -7,7 +7,6 @@ use Exception;
 use InvalidArgumentException;
 use RecursiveArrayIterator;
 use RecursiveIteratorIterator;
-use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 abstract class AbstractFunctionalTest extends WebTestCase
@@ -63,26 +62,5 @@ abstract class AbstractFunctionalTest extends WebTestCase
         $entityManager->rollback();
 
         return $this;
-    }
-
-    /**
-     * @param KernelBrowser $client
-     * @param string $query
-     * @return array
-     * @throws Exception
-     */
-    protected function graphqlRequest(KernelBrowser $client, string $query): array
-    {
-        $client->request('POST', '/graphql/', [
-            'query' => $query
-        ]);
-
-        $result = json_decode($client->getResponse()->getContent(), true);
-
-        if (!$result) {
-            throw new Exception("Response on graphql request '${query}' failed");
-        }
-
-        return $result;
     }
 }

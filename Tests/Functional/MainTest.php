@@ -25,7 +25,7 @@ class MainTest extends AbstractFunctionalTest
     public function testCanAccessGraphQl()
     {
         $this->withinTransaction(function (FunctionalBag $bag) {
-            $response = $this->graphqlRequest($bag->getClient(), '
+            $response = $bag->graphqlRequest('
                 {
                   netgenHeadlessSayHello
                 }
@@ -39,7 +39,7 @@ class MainTest extends AbstractFunctionalTest
         $this->withinTransaction(function (FunctionalBag $bag) {
             $layout = $bag->createPublishedLayout('Some name');
 
-            $response = $this->graphqlRequest($bag->getClient(), '
+            $response = $bag->graphqlRequest('
                 {
                     layouts {
                       id
@@ -58,7 +58,7 @@ class MainTest extends AbstractFunctionalTest
         $this->withinTransaction(function (FunctionalBag $bag) {
             $bag->createPublishedLayout('Some name');
 
-            $response = $this->graphqlRequest($bag->getClient(), '
+            $response = $bag->graphqlRequest('
                 {
                     layouts {
                       json
@@ -77,7 +77,7 @@ class MainTest extends AbstractFunctionalTest
         $this->withinTransaction(function (FunctionalBag $bag) {
             $bag->createPublishedLayout('Some name');
 
-            $response = $this->graphqlRequest($bag->getClient(), '
+            $response = $bag->graphqlRequest('
                 {
                     layouts {
                       zones {

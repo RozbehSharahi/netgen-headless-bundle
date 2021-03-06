@@ -53,7 +53,7 @@ class RootQueryType extends ObjectType implements AliasedInterface
      */
     private function resolveLayout(LayoutResolver $layoutResolver, array $input): ?Layout
     {
-        if (!$input['search']['request']) {
+        if (empty($input['search']['request'])) {
             throw new RequestError(
                 'You have to provide at least one of following fields on "search": ' .
                 implode(' or ', self::SEARCH_ONE_OF_MANDATORY_FIELDS)

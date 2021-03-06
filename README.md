@@ -1,5 +1,7 @@
 # Netgen Headless Bundle
 
+![Main Build](https://travis-ci.com/RozbehSharahi/netgen-headless-bundle.svg?branch=main)
+
 ## Installation
 
 This chapter is separated into main installation and debug installation. Please Keep in mind **Symfony Flex** will by

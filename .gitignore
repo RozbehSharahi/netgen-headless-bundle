@@ -2,6 +2,7 @@
 .env.local
 .doka.local.env
 z_*
+z_*/*
 Tests/**/var/
 
 /.idea

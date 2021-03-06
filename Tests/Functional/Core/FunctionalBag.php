@@ -64,7 +64,7 @@ class FunctionalBag
      */
     public function graphqlRequest(string $query): array
     {
-        $this->getClient()->request('POST', '/graphql/', [
+        $this->getClient()->request('POST', '/graphql/netgen', [
             'query' => $query
         ]);
 

@@ -12,8 +12,8 @@ netgen_content_browser:
 
 overblog_graphql_endpoint:
   resource: "@OverblogGraphQLBundle/Resources/config/routing/graphql.yml"
-  prefix: 'graphql'
+  prefix: ''
 
 overblog_graphiql:
   resource: "@OverblogGraphiQLBundle/Resources/config/routing.xml"
-  prefix: 'graphql'
+  prefix: ''

@@ -2,7 +2,9 @@ overblog_graphql:
   definitions:
     schema:
       default:
-        query: RootQuery
+        query: Query
+      netgen:
+        query: NetgenQuery
     mappings:
       types:
         -

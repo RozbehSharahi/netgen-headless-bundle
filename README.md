@@ -4,33 +4,22 @@
 
 ## Installation
 
-This chapter is separated into main installation and debug installation. Please Keep in mind **Symfony Flex** will by
-itself do most of the work for you when requiring with composer.
+Symfony flex should do the configuration automatically. So step 3 and 4 are normally not needed.
 
-Therefore, it should be any enough to run following and accept recipes:
+### 1 Install
 
 ```
 $ composer require rozbehsharahi/netgen-headless-bundle
-$ composer require --dev overblog/graphiql-bundle
 ```
 
 In case symfony flex is missing something, check the following steps:
 
-### 1 Install bundles
+### 2 Activate bundles
 
 ```
 // add to bundles.php
-Rs\NetgenHeadlessBundle\NetgenHeadlessBundle::class => ['all' => true],
 Overblog\GraphQLBundle\OverblogGraphQLBundle::class => ['all' => true],
-```
-
-### 2 Add routing
-
-```
-// add to config/routes.yaml
-netgen-headless:
-  resource: "@NetgenHeadlessBundle/Resources/config/routing.yaml"
-  prefix:   /netgen-headless
+Rs\NetgenHeadlessBundle\NetgenHeadlessBundle::class => ['all' => true],
 ```
 
 ### 3 Add GraphQL Route
@@ -38,10 +27,24 @@ netgen-headless:
 ```
 overblog_graphql_endpoint:
     resource: "@OverblogGraphQLBundle/Resources/config/routing/graphql.yml"
-    prefix: 'graphql'
+    prefix: ''
 ```
 
-## Installation of GraphIQL for debugging
+### Try it out
+
+```
+// Please replace http://localhost with your host in case it is not localhost
+curl -X POST -H "Content-Type: application/json" -d '{ "query": "{ sayHello }"  }' http://localhost/graphql/graphql/netgen
+```
+
+**Notice** that this bundle serves a separated schema. Therefore, please do not forget to append the schema `netgen` to your graphql endpoint:
+
+`http://localhost/graphql/netgen`
+
+## Installation of GraphIQL for debugging and documentation
+
+GraphIQL is a nice way to discover what this bundle offers. Symfony Flex should configure your
+ application automatically. Therefore, step 2 & 3 are normally not needed.
 
 ### 1 Install package
 
@@ -49,7 +52,7 @@ overblog_graphql_endpoint:
 composer require --dev overblog/graphiql-bundle
 ```
 
-### 2 Install bundle
+### 2 Activate bundle
 
 ```
 // config/bundles.php
@@ -62,17 +65,20 @@ Overblog\GraphiQLBundle\OverblogGraphiQLBundle::class => ['dev' => true],
 // config/routes/dev/graphiql.yaml
 overblog_graphiql:
     resource: "@OverblogGraphiQLBundle/Resources/config/routing.xml"
-    prefix: 'graphql'
 ```
+
+### 4 Try it out
+
+Now you can browse to `http://localhost/graphiql/netgen`.
+
+**Notice:** Please do not forget to add the schema `/netgen` to your graphiql route.
 
 ## Usage
 
 This package provides a graphql endpoint which depending on the configuration made can be reached
-via `http://your-domain.com/graphql` for instance. 
+via `http://your-domain.com/graphql/netgen` for instance.
 
-Please use graphiql or any other schema reading tool for graphql to see how accessing data is organized.
-
-Here an example query:
+### Example Query
 
 ```
 {
@@ -124,6 +130,6 @@ Tests/Application/setup-test-application
 # Now go to
 App: http://localhost:8080
 Netgen Layouts: http://localhost:8080/nglayouts/admin (User: root, Password: root)
-Graphql: http://localhost:8080/graphql/
-Graphiql: http://localhost:8080/graphql/graphiql
+Graphql: http://localhost:8080/graphql/netgen
+Graphiql: http://localhost:8080/graphiql/netgen
 ```

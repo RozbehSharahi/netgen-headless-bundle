@@ -11,7 +11,7 @@ use Netgen\Layouts\Layout\Resolver\LayoutResolver;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class RootQueryType extends ObjectType implements AliasedInterface
+class NetgenQueryType extends ObjectType implements AliasedInterface
 {
 
     const SEARCH_ONE_OF_MANDATORY_FIELDS = [
@@ -26,7 +26,7 @@ class RootQueryType extends ObjectType implements AliasedInterface
     ) {
         parent::__construct([
             'fields' => [
-                'netgenHeadlessSayHello' => [
+                'sayHello' => [
                     'type' => Type::string(),
                     'resolve' => fn() => 'Hello'
                 ],
@@ -75,7 +75,7 @@ class RootQueryType extends ObjectType implements AliasedInterface
 
     public static function getAliases(): array
     {
-        return ['RootQuery'];
+        return ['NetgenQuery'];
     }
 
 }

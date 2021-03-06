@@ -7,10 +7,10 @@
 This chapter is separated into main installation and debug installation. Please Keep in mind **Symfony Flex** will by
 itself do most of the work for you when requiring with composer.
 
-Therefore it should be any enough to run following and accept recipes:
+Therefore, it should be any enough to run following and accept recipes:
 
 ```
-$ composer require rozbehsharahi/netgen-headless
+$ composer require rozbehsharahi/netgen-headless-bundle
 $ composer require --dev overblog/graphiql-bundle
 ```
 

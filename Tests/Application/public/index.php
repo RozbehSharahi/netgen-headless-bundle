@@ -1,6 +1,6 @@
 <?php
 
-use Rs\NetgenHeadless\Tests\Application\ApplicationTestKernel;
+use Rs\NetgenHeadlessBundle\Tests\Application\ApplicationTestKernel;
 use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 

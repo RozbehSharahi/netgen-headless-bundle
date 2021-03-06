@@ -1,6 +1,6 @@
 <?php
 
-namespace Rs\NetgenHeadless\Tests\Functional\Core;
+namespace Rs\NetgenHeadlessBundle\Tests\Functional\Core;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;

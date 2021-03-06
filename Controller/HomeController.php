@@ -1,6 +1,6 @@
 <?php
 
-namespace Rs\NetgenHeadless\Controller;
+namespace Rs\NetgenHeadlessBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

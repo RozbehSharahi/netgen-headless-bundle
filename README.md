@@ -20,7 +20,7 @@ In case symfony flex is missing something, check the following steps:
 
 ```
 // add to bundles.php
-Rs\NetgenHeadless\NetgenHeadlessBundle::class => ['all' => true],
+Rs\NetgenHeadlessBundle\NetgenHeadlessBundle::class => ['all' => true],
 Overblog\GraphQLBundle\OverblogGraphQLBundle::class => ['all' => true],
 ```
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Rs\NetgenHeadless\Tests;
+namespace Rs\NetgenHeadlessBundle\Tests;
 
 use Exception;
 use Symfony\Component\Console\Application;

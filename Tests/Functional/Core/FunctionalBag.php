@@ -1,6 +1,6 @@
 <?php
 
-namespace Rs\NetgenHeadless\Tests\Functional\Core;
+namespace Rs\NetgenHeadlessBundle\Tests\Functional\Core;
 
 use Exception;
 use Netgen\Bundle\LayoutsAdminBundle\Controller\API\Block\Utils\CreateStructBuilder;

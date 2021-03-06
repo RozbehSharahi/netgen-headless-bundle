@@ -7,7 +7,7 @@ services:
       Netgen\Layouts\Transfer\Output\OutputVisitor: '@netgen_layouts.transfer.serializer.visitor'
       Netgen\Layouts\Layout\Resolver\LayoutResolver: '@netgen_layouts.layout.resolver'
 
-  Rs\NetgenHeadless\:
+  Rs\NetgenHeadlessBundle\:
     resource: '../../'
     exclude:
         - '../../bin/'

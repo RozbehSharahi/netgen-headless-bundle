@@ -1,8 +1,8 @@
 <?php
 
-namespace Rs\NetgenHeadless\Tests\Functional\Core;
+namespace Rs\NetgenHeadlessBundle\Tests\Functional\Core;
 
-use Rs\NetgenHeadless\Tests\TestKernel;
+use Rs\NetgenHeadlessBundle\Tests\TestKernel;
 
 class FunctionalTestKernel extends TestKernel {
 

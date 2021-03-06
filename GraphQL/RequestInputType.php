@@ -1,6 +1,6 @@
 <?php
 
-namespace Rs\NetgenHeadless\GraphQL;
+namespace Rs\NetgenHeadlessBundle\GraphQL;
 
 use GraphQL\Type\Definition\InputObjectType;
 use GraphQL\Type\Definition\Type;

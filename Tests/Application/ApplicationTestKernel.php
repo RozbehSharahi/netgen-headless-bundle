@@ -1,8 +1,8 @@
 <?php
 
-namespace Rs\NetgenHeadless\Tests\Application;
+namespace Rs\NetgenHeadlessBundle\Tests\Application;
 
-use Rs\NetgenHeadless\Tests\TestKernel;
+use Rs\NetgenHeadlessBundle\Tests\TestKernel;
 
 class ApplicationTestKernel extends TestKernel {
 

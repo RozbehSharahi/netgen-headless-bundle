@@ -1,6 +1,6 @@
 <?php
 
-namespace Rs\NetgenHeadless\DependencyInjection;
+namespace Rs\NetgenHeadlessBundle\DependencyInjection;
 
 use Exception;
 use Symfony\Component\Config\FileLocator;

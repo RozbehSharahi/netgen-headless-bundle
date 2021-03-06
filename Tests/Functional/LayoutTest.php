@@ -1,11 +1,11 @@
 <?php
 /** @noinspection PhpUnhandledExceptionInspection */
 
-namespace Rs\NetgenHeadless\Tests\Functional;
+namespace Rs\NetgenHeadlessBundle\Tests\Functional;
 
 use Ramsey\Uuid\Uuid;
-use Rs\NetgenHeadless\Tests\Functional\Core\AbstractFunctionalTest;
-use Rs\NetgenHeadless\Tests\Functional\Core\FunctionalBag;
+use Rs\NetgenHeadlessBundle\Tests\Functional\Core\AbstractFunctionalTest;
+use Rs\NetgenHeadlessBundle\Tests\Functional\Core\FunctionalBag;
 
 class LayoutTest extends AbstractFunctionalTest
 {

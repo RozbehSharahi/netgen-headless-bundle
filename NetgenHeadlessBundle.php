@@ -1,6 +1,6 @@
 <?php
 
-namespace Rs\NetgenHeadless;
+namespace Rs\NetgenHeadlessBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

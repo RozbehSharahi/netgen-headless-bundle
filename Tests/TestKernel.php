@@ -1,6 +1,6 @@
 <?php
 
-namespace Rs\NetgenHeadless\Tests;
+namespace Rs\NetgenHeadlessBundle\Tests;
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle;
@@ -15,7 +15,7 @@ use Netgen\Bundle\LayoutsStandardBundle\NetgenLayoutsStandardBundle;
 use Netgen\Bundle\LayoutsUIBundle\NetgenLayoutsUIBundle;
 use Overblog\GraphiQLBundle\OverblogGraphiQLBundle;
 use Overblog\GraphQLBundle\OverblogGraphQLBundle;
-use Rs\NetgenHeadless\NetgenHeadlessBundle;
+use Rs\NetgenHeadlessBundle\NetgenHeadlessBundle;
 use Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MonologBundle\MonologBundle;

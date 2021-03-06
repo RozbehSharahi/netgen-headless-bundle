@@ -1,13 +1,13 @@
 <?php
 /** @noinspection PhpUnhandledExceptionInspection */
 
-namespace Rs\NetgenHeadless\Tests\Functional;
+namespace Rs\NetgenHeadlessBundle\Tests\Functional;
 
 use Exception;
-use Rs\NetgenHeadless\Controller\HomeController;
-use Rs\NetgenHeadless\GraphQL\RootQueryType;
-use Rs\NetgenHeadless\Tests\Functional\Core\AbstractFunctionalTest;
-use Rs\NetgenHeadless\Tests\Functional\Core\FunctionalBag;
+use Rs\NetgenHeadlessBundle\Controller\HomeController;
+use Rs\NetgenHeadlessBundle\GraphQL\RootQueryType;
+use Rs\NetgenHeadlessBundle\Tests\Functional\Core\AbstractFunctionalTest;
+use Rs\NetgenHeadlessBundle\Tests\Functional\Core\FunctionalBag;
 
 class BundleTest extends AbstractFunctionalTest
 {

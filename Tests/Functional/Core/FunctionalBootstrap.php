@@ -1,9 +1,9 @@
 <?php
 
-namespace Rs\NetgenHeadless\Tests\Functional\Core;
+namespace Rs\NetgenHeadlessBundle\Tests\Functional\Core;
 
 use Exception;
-use Rs\NetgenHeadless\Tests\TestHelper;
+use Rs\NetgenHeadlessBundle\Tests\TestHelper;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Dotenv\Dotenv;
 

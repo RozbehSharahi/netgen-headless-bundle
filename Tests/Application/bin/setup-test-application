@@ -1,8 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-use Rs\NetgenHeadless\Tests\Application\ApplicationTestKernel;
-use Rs\NetgenHeadless\Tests\TestHelper;
+use Rs\NetgenHeadlessBundle\Tests\Application\ApplicationTestKernel;
+use Rs\NetgenHeadlessBundle\Tests\TestHelper;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Dotenv\Dotenv;
 

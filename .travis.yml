@@ -10,7 +10,7 @@ matrix:
   include:
     - php: 7.4
 env:
-  - DB=mysql
+  - DATABASE_URL=mysql://root:@localhost:3306/test-database
 before-install:
   - composer self-update
 install:

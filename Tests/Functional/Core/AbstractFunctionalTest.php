@@ -17,12 +17,11 @@ abstract class AbstractFunctionalTest extends WebTestCase
     }
 
     /**
-     * @param string $key
      * @param array $array
      * @param string $delimiter
-     * @throws Exception
+     * @return array
      */
-    static protected function assertKeyExistsInArray(string $key, array $array, string $delimiter = '.'): void
+    static private function nestedArrayToFlatArray(array $array, string $delimiter = '.'): array
     {
         $iterator = new RecursiveIteratorIterator(
             new RecursiveArrayIterator($array),
@@ -36,9 +35,70 @@ abstract class AbstractFunctionalTest extends WebTestCase
             $flatArray[implode($delimiter, array_slice($path, 0, $iterator->getDepth() + 1))] = $value;
         }
 
-        if (!isset($flatArray[$key])) {
-            throw new Exception("Failed asserting that key '${key}' exists in: " . print_r($array, true));
+        return $flatArray;
+    }
+
+    /**
+     * @param string $key
+     * @param array $array
+     * @param string $delimiter
+     * @throws Exception
+     */
+    static protected function assertKeyExistsInArray(string $key, array $array, string $delimiter = '.'): void
+    {
+        self::assertArrayHasKey(
+            $key,
+            self::nestedArrayToFlatArray($array, $delimiter),
+            "Failed asserting that key '${key}' exists in: " . print_r($array, true)
+        );
+    }
+
+    /**
+     * @param string $key
+     * @param mixed $value
+     * @param array $array
+     * @param string $delimiter
+     * @throws Exception
+     */
+    static protected function assertKeyEqualsInArray(
+        string $key,
+        $value,
+        array $array,
+        string $delimiter = '.'
+    ): void {
+        self::assertEquals(
+            $value,
+            self::nestedArrayToFlatArray($array, $delimiter)[$key],
+            "Failed asserting that key '${key}' is equal to '" .
+            print_r($value, true) . "' in: " . print_r($array, true)
+        );
+    }
+
+    /**
+     * @param string $key
+     * @param string $value
+     * @param array $array
+     * @param string $delimiter
+     * @throws Exception
+     */
+    static protected function assertKeyContainsStringInArray(
+        string $key,
+        string $value,
+        array $array,
+        string $delimiter = '.'
+    ): void {
+        $foundValue = self::nestedArrayToFlatArray($array, $delimiter)[$key] ?? null;
+
+        if (!$foundValue || !is_string($foundValue)) {
+            throw new Exception("Expected key '$key' to be string, but it was not");
         }
+
+        self::assertStringContainsString(
+            $value,
+            $foundValue,
+            "Failed asserting that key '${key}' contains '" .
+            print_r($value, true) . "' in: " . print_r($array, true)
+        );
     }
 
     protected function withinTransaction($callback): self

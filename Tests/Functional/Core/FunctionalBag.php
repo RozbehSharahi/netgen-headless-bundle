@@ -3,9 +3,12 @@
 namespace Rs\NetgenHeadless\Tests\Functional\Core;
 
 use Exception;
+use Netgen\Bundle\LayoutsAdminBundle\Controller\API\Block\Utils\CreateStructBuilder;
+use Netgen\Layouts\API\Service\BlockService;
 use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\Layout\Layout;
 use Netgen\Layouts\API\Values\Layout\LayoutCreateStruct;
+use Netgen\Layouts\Block\Registry\BlockTypeRegistry;
 use Netgen\Layouts\Exception\BadStateException;
 use Netgen\Layouts\Layout\Registry\LayoutTypeRegistry;
 use Psr\Container\ContainerInterface;
@@ -73,6 +76,21 @@ class FunctionalBag
         return $this->container->get('netgen_layouts.layout.registry.layout_type');
     }
 
+    public function getBlockTypeRegistry(): BlockTypeRegistry
+    {
+        return $this->container->get('netgen_layouts.block.registry.block_type');
+    }
+
+    public function getCreateStructBuilder(): CreateStructBuilder
+    {
+        return $this->container->get('netgen_layouts.controller.api.block.create_struct_builder');
+    }
+
+    public function getBlockService(): BlockService
+    {
+        return $this->container->get(BlockService::class);
+    }
+
     /**
      * @param string $title
      * @param string $type
@@ -105,6 +123,22 @@ class FunctionalBag
             $title,
             $local
         );
+    }
+
+    /**
+     * @param Layout $layout
+     * @param string $zone
+     * @param string $type
+     * @return Layout
+     * @throws BadStateException
+     */
+    public function addBlockToLayout(Layout $layout, string $zone, string $type): Layout
+    {
+        $blockType = $this->getBlockTypeRegistry()->getBlockType($type);
+        $block = $this->getCreateStructBuilder()->buildCreateStruct($blockType);
+        $layout = $this->getLayoutService()->createDraft($layout);
+        $this->getBlockService()->createBlockInZone($block, $layout->getZone($zone));
+        return $this->getLayoutService()->publishLayout($layout);
     }
 
 }

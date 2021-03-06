@@ -67,8 +67,7 @@ class MainTest extends AbstractFunctionalTest
             ');
 
             self::assertKeyExistsInArray('data.layouts.0.json', $response);
-            self::assertIsString($response['data']['layouts'][0]['json']);
-            self::assertStringContainsString('Some name', $response['data']['layouts'][0]['json']);
+            self::assertKeyContainsStringInArray('data.layouts.0.json', 'Some name', $response);
         });
     }
 
@@ -88,7 +87,7 @@ class MainTest extends AbstractFunctionalTest
             ');
 
             self::assertKeyExistsInArray('data.layouts.0.zones.0.json', $response);
-            self::assertStringContainsString('main', $response['data']['layouts'][0]['zones'][0]['json']);
+            self::assertKeyContainsStringInArray('data.layouts.0.zones.0.json', 'main', $response);
         });
     }
 

@@ -1,6 +1,6 @@
 {
-  "name": "rozbehsharahi/netgen-headless",
-  "description": "Symfony Bundle to make Netgen Layout Headless",
+  "name": "rozbehsharahi/netgen-headless-bundle",
+  "description": "Symfony Bundle to make Netgen Layouts Headless",
   "type": "symfony-bundle",
   "license": "MIT",
   "authors": [

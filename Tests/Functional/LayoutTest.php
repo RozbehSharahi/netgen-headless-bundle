@@ -3,36 +3,11 @@
 
 namespace Rs\NetgenHeadless\Tests\Functional;
 
-use Exception;
-use Rs\NetgenHeadless\Controller\HomeController;
 use Rs\NetgenHeadless\Tests\Functional\Core\AbstractFunctionalTest;
 use Rs\NetgenHeadless\Tests\Functional\Core\FunctionalBag;
 
-class MainTest extends AbstractFunctionalTest
+class LayoutTest extends AbstractFunctionalTest
 {
-
-    /**
-     * @throws Exception
-     */
-    public function testBundleInstalled()
-    {
-        $this->withinTransaction(function (FunctionalBag $bag) {
-            $bag->getClient()->request('GET', '/netgen-headless/');
-            self::assertEquals(HomeController::SUCCESS_MESSAGE, $bag->getClient()->getResponse()->getContent());
-        });
-    }
-
-    public function testCanAccessGraphQl()
-    {
-        $this->withinTransaction(function (FunctionalBag $bag) {
-            $response = $bag->graphqlRequest('
-                {
-                  netgenHeadlessSayHello
-                }
-            ');
-            self::assertEquals('Hello. I am There.', $response['data']['netgenHeadlessSayHello']);
-        });
-    }
 
     public function testCanGetLayoutViaGraphQl()
     {

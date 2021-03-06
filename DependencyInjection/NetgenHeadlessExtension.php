@@ -10,6 +10,9 @@ use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * @codeCoverageIgnore
+ */
 class NetgenHeadlessExtension extends Extension implements PrependExtensionInterface
 {
 

@@ -17,12 +17,6 @@ class BlockType extends ObjectType
                     'type' => Type::string(),
                     'resolve' => fn(Block $block) => $block->getId()->toString()
                 ],
-                'parametersJson' => [
-                    'type' => Type::string(),
-                    'resolve' => fn(Block $block) => json_encode(
-                        $outputVisitor->visit($block)['parameters']
-                    )
-                ],
                 'json' => [
                     'type' => Type::string(),
                     'resolve' => fn(Block $block) => json_encode(

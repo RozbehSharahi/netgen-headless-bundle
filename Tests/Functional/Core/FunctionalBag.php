@@ -5,6 +5,7 @@ namespace Rs\NetgenHeadless\Tests\Functional\Core;
 use Exception;
 use Netgen\Bundle\LayoutsAdminBundle\Controller\API\Block\Utils\CreateStructBuilder;
 use Netgen\Layouts\API\Service\BlockService;
+use Netgen\Layouts\API\Service\LayoutResolverService;
 use Netgen\Layouts\API\Service\LayoutService;
 use Netgen\Layouts\API\Values\Layout\Layout;
 use Netgen\Layouts\API\Values\Layout\LayoutCreateStruct;
@@ -49,6 +50,11 @@ class FunctionalBag
     public function getLayoutService(): LayoutService
     {
         return $this->container->get('netgen_layouts.api.service.layout');
+    }
+
+    public function getLayoutResolverService(): LayoutResolverService
+    {
+        return $this->container->get('netgen_layouts.api.service.layout_resolver');
     }
 
     /**

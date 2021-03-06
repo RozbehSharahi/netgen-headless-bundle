@@ -36,7 +36,7 @@ class BundleTest extends AbstractFunctionalTest
                   netgenHeadlessSayHello
                 }
             ');
-            self::assertEquals('Hello. I am There.', $response['data']['netgenHeadlessSayHello']);
+            self::assertEquals('Hello', $response['data']['netgenHeadlessSayHello']);
         });
     }
 

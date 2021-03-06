@@ -4,12 +4,15 @@
 
 ## Installation
 
-Symfony flex should do the configuration automatically. So step 3 and 4 are normally not needed.
+Symfony flex should do the configuration automatically. So step 2 and 3 are normally not needed.
 
 ### 1 Install
 
 ```
 $ composer require rozbehsharahi/netgen-headless-bundle
+
+// This package has no release yet, so you will need to install like following in fact:
+$ composer require rozbehsharahi/netgen-headless-bundle:dev-main
 ```
 
 In case symfony flex is missing something, check the following steps:
@@ -27,14 +30,14 @@ Rs\NetgenHeadlessBundle\NetgenHeadlessBundle::class => ['all' => true],
 ```
 overblog_graphql_endpoint:
     resource: "@OverblogGraphQLBundle/Resources/config/routing/graphql.yml"
-    prefix: ''
+    prefix: '' // add here a prefix for graphql in case you don't want graphql to register on `/`
 ```
 
 ### Try it out
 
 ```
 // Please replace http://localhost with your host in case it is not localhost
-curl -X POST -H "Content-Type: application/json" -d '{ "query": "{ sayHello }"  }' http://localhost/graphql/graphql/netgen
+curl -X POST -H "Content-Type: application/json" -d '{ "query": "{ sayHello }"  }' http://localhost/graphql/netgen
 ```
 
 **Notice** that this bundle serves a separated schema. Therefore, please do not forget to append the schema `netgen` to your graphql endpoint:

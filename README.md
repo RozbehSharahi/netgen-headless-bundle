@@ -76,7 +76,7 @@ Here an example query:
 
 ```
 {
-    layouts {
+    layout(search: { request: { uri: "/hello-world" } }) {
         id # receive id
         json # receive json of whole layout
         zones {

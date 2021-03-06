@@ -1,0 +1,21 @@
+language: php
+sudo: false
+services:
+  - mysql
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+matrix:
+  fast_finish: true
+  include:
+    - php: 7.4
+env:
+  - DB=mysql
+before-install:
+  - composer self-update
+install:
+  - composer install
+script:
+  - vendor/bin/phpunit
+notifications:
+  email: rozbeh.sharahi@gmail.com
